@@ -4,6 +4,8 @@
 
 src/main/resources
 
+target
+
 *.iml
 
 *.log
