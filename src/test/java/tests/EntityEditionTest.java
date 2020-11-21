@@ -4,17 +4,20 @@ import models.TaskData;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class EntityEditionTest extends TestBase{
+import java.util.List;
+
+public class EntityEditionTest extends TestBase {
 
     @Test
-    public void entityEditionTest(){
-        app.getNavigationHelper().openIndexPage();
-        app.getTaskHelper().editTask();
-        TaskData data = app.getTaskHelper().getExpectedEditedData();
-        app.getTaskHelper().saveEditedTask();
-        TaskData newData = app.getTaskHelper().getEditedTaskData();
-        Assert.assertEquals(data.getTarget(),newData.getTarget());
-        Assert.assertEquals(data.getDescription(),newData.getDescription());
+    public void entityEditionTest() {
+        //Редактируем записи
+        app.getTaskHelper().editTasks();
+        //Получаем то, что мы ожидаем
+        List<TaskData> expectedData = app.getTaskHelper().getExpectedEditedTasks();
+        //Получаем реальные значения на странице
+        List<TaskData> actualData = app.getTaskHelper().getActualTasks();
+        //содержит ли список ожидаемых данных, список данных, которые мы получили
+        Assert.assertTrue(expectedData.containsAll(actualData));
         app.stop();
     }
 }

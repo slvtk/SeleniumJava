@@ -1,4 +1,5 @@
 import com.google.gson.Gson;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.security.SecureRandom;
@@ -7,7 +8,7 @@ import java.util.List;
 
 public class TaskDataGenerator {
     private static final String DATA_FOR_RANDOM_STRING = "abcdefghijklmnopqrstuvw";
-    private static SecureRandom random = new SecureRandom();
+    private static final SecureRandom random = new SecureRandom();
 
     public static void main(String[] args) throws IOException {
         String type = args[0];
