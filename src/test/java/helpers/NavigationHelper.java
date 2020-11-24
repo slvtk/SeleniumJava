@@ -14,8 +14,4 @@ public class NavigationHelper extends HelperBase {
     public void openIndexPage() {
         driver.navigate().to(baseUrl);
     }
-
-/*    public void openDraftsPage() {
-        driver.navigate().to(baseUrl);
-    }*/
 }

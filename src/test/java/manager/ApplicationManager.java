@@ -1,5 +1,6 @@
 package manager;
 
+import configurations.Settings;
 import helpers.TaskHelper;
 import helpers.LoginHelper;
 import helpers.NavigationHelper;
@@ -8,7 +9,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-//тут все норм
 public class ApplicationManager {
 
     private final WebDriver driver;
@@ -16,14 +16,13 @@ public class ApplicationManager {
     private final NavigationHelper navigationHelper;
     private final LoginHelper loginHelper;
     public TaskHelper taskHelper;
-    private static ThreadLocal<ApplicationManager> app = new ThreadLocal<ApplicationManager>();
+    private static final ThreadLocal<ApplicationManager> app = new ThreadLocal<>();
 
     private ApplicationManager() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver_win32/chromedriver.exe");
+        System.setProperty(Settings.driverName, Settings.driverPath);
         driver = new ChromeDriver();
-        String baseUrl = "http://www.mainplans.ru/";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        navigationHelper = new NavigationHelper(this, baseUrl);
+        navigationHelper = new NavigationHelper(this, Settings.baseUrl);
         loginHelper = new LoginHelper(this);
         taskHelper = new TaskHelper(this);
     }
@@ -56,5 +55,4 @@ public class ApplicationManager {
         }
         return app.get();
     }
-
 }

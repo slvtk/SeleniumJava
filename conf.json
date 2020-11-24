@@ -1,0 +1,11 @@
+{
+  "login": "ss",
+  "password": "ssssssss",
+  "incorrectLogin": "Incorrect",
+  "incorrectPassword": "Incorrect",
+  "editedTarget": "Изменен",
+  "editedDescription": "Изменен",
+  "baseUrl": "http://www.mainplans.ru/",
+  "driverName": "webdriver.chrome.driver",
+  "driverPath": "src/main/resources/chromedriver_win32/chromedriver.exe"
+}

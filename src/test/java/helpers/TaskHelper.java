@@ -1,6 +1,7 @@
 package helpers;
 
 import com.google.gson.Gson;
+import configurations.Settings;
 import manager.ApplicationManager;
 import models.TaskData;
 import org.openqa.selenium.By;
@@ -13,12 +14,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-//тут не норм
 public class TaskHelper extends HelperBase {
     //записи полученные из Json
     private final List<TaskData> tasks = tasksFromJson();
     //записи для изменения
-    private final TaskData editedTasks = new TaskData("Изменен", "Изменен");
+    private final TaskData editedTasks = new TaskData(Settings.editedTarget, Settings.editedDescription);
 
     public TaskHelper(ApplicationManager applicationManager) {
         super(applicationManager);
